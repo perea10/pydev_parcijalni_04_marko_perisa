@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Customers list</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>VAT ID</th>
+        <th>Sreet</th>
+        <th>City</th>
+        <th>Country</th>
+    </tr>
+    {% for customer in customers %}
+    <tr>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.vat_id }}</td>
+        <td>{{ customer.street }}</td>
+        <td>{{ customer.city }}</td>
+        <td>{{ customer.country }}</td>
+        <td>
+            <a href="{% url 'customer_update' customer.pk %}">
+                <button>Update</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
