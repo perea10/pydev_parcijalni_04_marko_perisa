@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Popis ponuda</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>User</th>
+    </tr>
+    {% for offer in offers %}
+    <tr>
+        <td>{{ offer.id }}</td>
+        <td>{{ offer.customer.name }}</td>
+        <td>{{ offer.user.username }}</td>
+        <td>
+            <a href="{% url 'offer_update' offer.id %}">
+                <button>Uredi</button>
+            </a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'offer_create' %}">New Offer</a>
+{% endblock %}
