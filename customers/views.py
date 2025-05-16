@@ -11,20 +11,24 @@ class CustomerListView(ListView):
 
 class CustomerDetailView(DetailView):
     model = Customer
+    template_name = 'customers/customer_list.html'
 
 
 class CustomerCreateView(CreateView):
     model = Customer
     fields = '__all__'
+    template_name = 'customers/customer_list.html'
     success_url = reverse_lazy('customers:customer_list')
 
 
 class CustomerUpdateView(UpdateView):
     model = Customer
     fields = '__all__'
+    template_name = 'customers/customer_list.html'
     success_url = reverse_lazy('customers:customer_list')
 
 
 class CustomerDeleteView(DeleteView):
     model = Customer
+    template_name = 'customers/customer_list.html'
     success_url = reverse_lazy('customers:customer_list')
